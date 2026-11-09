@@ -155,8 +155,9 @@ class FiltersMixin(object):
         the merged dict.
         '''
         url_params = {}
-        for key in query_params:
-            url_params[key] = query_params.get(key) # get method on query-dict works differently than on dict.
+        if query_params:
+            for key in query_params:
+                url_params[key] = query_params.get(key) # get method on query-dict works differently than on dict.
         return url_params
 
     def get_db_queries(self, url_params, query_params):
